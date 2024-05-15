@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# private docs
+/docs/Documentación de proyecto - Pablo Belló - Formateado.docx
+/docs/Explicación indicadores.docx.pdf
