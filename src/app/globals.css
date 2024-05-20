@@ -8,11 +8,6 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-::selection {
-  color: white;
-  background: indigo;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -32,6 +27,11 @@ body {
 }
 
 @layer utilities {
+  ::selection {
+    color: white;
+    background: indigo;
+  }
+
   .text-balance {
     text-wrap: balance;
   }
