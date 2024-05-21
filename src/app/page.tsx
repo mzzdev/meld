@@ -4,6 +4,7 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Divider } from "@nextui-org/divider";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 export default function Home() {
   return (
@@ -11,13 +12,14 @@ export default function Home() {
 
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950">
-        <BackgroundGradientAnimation />
+        {/* <BackgroundGradientAnimation /> */}
       </div>
+      {/* <ThemeSwitcher className="absolute inset-0"/> */}
 
       {/* logo card */}
       <div className="flex-grow relative z-10 m-2 md:m-0 ring-1 ring-neutral-700">
         <div className="flex justify-center items-center h-full">
-          <div className="bg-black p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800">
+          <div className="bg-white dark:bg-black p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800">
             <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
               <div>
                 <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-white">
@@ -46,7 +48,7 @@ export default function Home() {
             </p>
           </div>
           <Divider orientation="vertical" />
-          <div className="flex items-center justify-center h-full w-1/2">
+          <div className="flex items-center justify-center h-full w-1/2 bg-white text-black dark:text-white dark:bg-black">
             <p className="text-4xl sm:text-7xl font-bold py-8">3d here</p>
           </div>
         </div>
