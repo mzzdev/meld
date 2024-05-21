@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Divider } from "@nextui-org/divider";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { Model } from "@/components/ModelViewer";
 
 export default function Home() {
   return (
@@ -62,12 +63,12 @@ export default function Home() {
           </div>
           <Divider orientation="vertical" />
           <div className="flex items-center justify-center h-full w-1/2 bg-white text-black dark:text-white dark:bg-black">
-            <p className="text-4xl sm:text-7xl font-bold py-8">3d here</p>
+            {/* <Model /> */}
+            {/* <p className="text-4xl sm:text-7xl font-bold py-8">3d here</p> */}
           </div>
         </div>
 
       </div>
     </main>
-
   );
 }
