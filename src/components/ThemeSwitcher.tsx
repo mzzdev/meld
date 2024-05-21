@@ -28,6 +28,7 @@ export function ThemeSwitcher() {
       startContent={<SunIcon />}
       endContent={<MoonIcon />}
       onChange={toggleTheme}
+      color="secondary"
     />
   )
 };

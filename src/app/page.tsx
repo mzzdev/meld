@@ -11,18 +11,31 @@ export default function Home() {
     <main className="flex min-h-screen relative overflow-x-hidden scroll-container">
 
       {/* logo background */}
-      <div className="absolute inset-0 bg-purple-950">
-        {/* <BackgroundGradientAnimation /> */}
+      <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
+        {/* TODO: hacer que le afecte el modo oscuro */}
+        <BackgroundGradientAnimation
+          firstColor="0, 0, 0"
+          secondColor="0, 0, 0"
+          thirdColor="0, 0, 0"
+          fourthColor="0, 0, 0"
+          fifthColor="0, 0, 0"
+          pointerColor="179, 0, 255"
+          gradientBackgroundEnd="rgb(69, 12, 161)"
+          gradientBackgroundStart="rgb(0, 0, 0)"
+        />
       </div>
-      {/* <ThemeSwitcher className="absolute inset-0"/> */}
+
+      <div className="absolute m-4 z-20 right-0">
+        <ThemeSwitcher />
+      </div>
 
       {/* logo card */}
-      <div className="flex-grow relative z-10 m-2 md:m-0 ring-1 ring-neutral-700">
+      <div className="flex-grow relative z-10 m-2 md:m-0 ring-1 ring-neutral-700 pointer-events-none">
         <div className="flex justify-center items-center h-full">
-          <div className="bg-white dark:bg-black p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800">
+          <div className="bg-white dark:bg-black p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto">
             <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
               <div>
-                <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-white">
+                <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-black dark:text-white">
                   <Highlight className=""><span className="">Meld</span></Highlight> is a showcase web project.
                 </p>
               </div>
@@ -42,7 +55,7 @@ export default function Home() {
         {/* nextjs & react */}
         <div className="flex flex-row h-full">
           <div className="h-full w-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
-            <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
+            <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
             <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
               Next.js
             </p>
@@ -55,5 +68,6 @@ export default function Home() {
 
       </div>
     </main>
+
   );
 }
