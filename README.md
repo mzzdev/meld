@@ -11,3 +11,5 @@ Showcase project
 
 - i18n
 
+- Asynchronous loading
+

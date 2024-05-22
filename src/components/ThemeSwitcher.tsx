@@ -6,14 +6,17 @@ import { Switch } from "@nextui-org/switch";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false)
+
+  // UNCOMMENT ALL IF YOU WANT TO WAIT FOR THE COMPONENT TO MOUNT OR IF THERE ARE PROBLEMS WITH THE THEME SWITCHER
+
+  // const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // useEffect(() => {
+  //   setMounted(true)
+  // }, [])
 
-  if(!mounted) return null
+  // if(!mounted) return null
 
   const toggleTheme = () => {
     if (theme === 'dark') {
