@@ -9,7 +9,7 @@ import { Model } from "@/components/ModelViewer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen relative overflow-x-hidden scroll-container">
+    <main className="flex flex-col min-h-screen relative overflow-x-hidden">
 
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
@@ -26,12 +26,12 @@ export default function Home() {
         />
       </div>
 
-      <div className="absolute m-4 z-20 right-0">
+      <div className="fixed mt-4 mr-6 z-20 right-0">
         <ThemeSwitcher />
       </div>
 
       {/* logo card */}
-      <div className="flex-grow relative z-10 m-2 md:m-0 ring-1 ring-neutral-700 pointer-events-none">
+      <div className="flex-grow h-screen relative z-10 m-2 md:m-0 ring-1 ring-neutral-700 pointer-events-none">
         <div className="flex justify-center items-center h-full">
           <div className="bg-white dark:bg-black p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto">
             <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
@@ -54,16 +54,23 @@ export default function Home() {
         <Divider />
 
         {/* nextjs & react */}
-        <div className="flex flex-row h-full">
-          <div className="h-full w-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+        <div className="flex flex-row h-[75%]">
+          <div className="h-full w-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
             <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
               Next.js
             </p>
+            <p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4">
+              Next.js is the powerhouse of this project, providing
+              <span className="text-secondary-400 dark:text-secondary-600"> robust functionality </span>
+              and smooth integration, which streamlines development and enhances the
+              <span className="text-secondary-400 dark:text-secondary-600"> user experience </span>.
+            </p>
           </div>
           <Divider orientation="vertical" />
           <div className="flex items-center justify-center h-full w-1/2 bg-white text-black dark:text-white dark:bg-black">
-            {/* <Model /> */}
+            {/* Usar suspense */}
+            <Model />
             {/* <p className="text-4xl sm:text-7xl font-bold py-8">3d here</p> */}
           </div>
         </div>
