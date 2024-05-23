@@ -13,3 +13,4 @@ Showcase project
 
 - Asynchronous loading
 
+- GSAP / framer-motion / tailwind-animations

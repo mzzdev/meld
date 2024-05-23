@@ -1,3 +1,5 @@
+'use client';
+
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
@@ -6,15 +8,16 @@ import { Divider } from "@nextui-org/divider";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Model } from "@/components/ModelViewer";
+import { easeOut, motion, spring } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen relative overflow-x-hidden">
+    <main className="flex flex-col min-h-screen min-w-screen relative overflow-x-hidden">
 
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
         {/* TODO: hacer que le afecte el modo oscuro */}
-        <BackgroundGradientAnimation
+        {/* <BackgroundGradientAnimation
           firstColor="0, 0, 0"
           secondColor="0, 0, 0"
           thirdColor="0, 0, 0"
@@ -23,7 +26,7 @@ export default function Home() {
           pointerColor="179, 0, 255"
           gradientBackgroundEnd="rgb(69, 12, 161)"
           gradientBackgroundStart="rgb(0, 0, 0)"
-        />
+        /> */}
       </div>
 
       <div className="fixed mt-4 mr-6 z-20 right-0">
@@ -54,21 +57,23 @@ export default function Home() {
         <Divider />
 
         {/* nextjs & react */}
-        <div className="flex flex-row h-[75%]">
-          <div className="h-full w-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
+        <div className="flex w-full flex-col md:flex-row h-auto md:h-[75%]">
+          <div className="h-full w-full md:w-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
             <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
-            <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8">
+            <motion.p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"
+            initial={{opacity: 0, y: -25}} whileInView={{opacity: 1, y: 0}} transition={{duration: .5, delay: 0, ease :"easeInOut"}}>
               Next.js
-            </p>
-            <p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4">
+            </motion.p>
+            <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
+            initial={{opacity: 0, y: 25}} whileInView={{opacity: 1, y: 0}} transition={{duration: .5, delay: 0, ease :"easeInOut"}}>
               Next.js is the powerhouse of this project, providing
               <span className="text-secondary-400 dark:text-secondary-600"> robust functionality </span>
               and smooth integration, which streamlines development and enhances the
               <span className="text-secondary-400 dark:text-secondary-600"> user experience </span>.
-            </p>
+            </motion.p>
           </div>
           <Divider orientation="vertical" />
-          <div className="flex items-center justify-center h-full w-1/2 bg-white text-black dark:text-white dark:bg-black">
+          <div className="flex items-center justify-center h-full w-full md:w-1/2 bg-white text-black dark:text-white dark:bg-black">
             {/* Usar suspense */}
             <Model />
             {/* <p className="text-4xl sm:text-7xl font-bold py-8">3d here</p> */}
