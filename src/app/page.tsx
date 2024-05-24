@@ -9,17 +9,22 @@ import { SparklesCore } from "@/components/ui/sparkles";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Model } from "@/components/ModelViewer";
 import { easeOut, motion, spring } from "framer-motion";
-import { Suspense } from "react";
-import { Spinner } from "@nextui-org/react";
+import { Suspense, useState } from "react";
+import { Card, Skeleton, Spinner } from "@nextui-org/react";
 
 export default function Home() {
+  const [isModelMaximized, setIsModelMaximized] = useState(false);
+
+  const toggleModelView = () => {
+    setIsModelMaximized(!isModelMaximized);
+  };
   return (
     <main className="flex flex-col min-h-screen min-w-screen relative overflow-x-hidden">
 
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
         {/* TODO: hacer que le afecte el modo oscuro */}
-        <BackgroundGradientAnimation
+        {/* <BackgroundGradientAnimation
           firstColor="0, 0, 0"
           secondColor="0, 0, 0"
           thirdColor="0, 0, 0"
@@ -28,7 +33,7 @@ export default function Home() {
           pointerColor="179, 0, 255"
           gradientBackgroundEnd="rgb(69, 12, 161)"
           gradientBackgroundStart="rgb(0, 0, 0)"
-        />
+        /> */}
       </div>
 
       <div className="fixed mt-4 mr-6 z-20 right-0">
@@ -59,8 +64,8 @@ export default function Home() {
         <Divider />
 
         {/* nextjs & react */}
-        <div className="flex w-full flex-col md:flex-row h-auto md:h-[75%]">
-          <div className="h-full w-full md:w-1/2 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
+        <div className={`relative flex w-full h-[50vh] ${isModelMaximized ? 'flex-row' : 'flex-col md:flex-row'}`}>
+          <div className={`h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center`}>
             <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
             <motion.p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"
               initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
@@ -68,15 +73,16 @@ export default function Home() {
             </motion.p>
             <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
               initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
-              Next.js is the powerhouse of this project, providing
-              <span className="text-secondary-400 dark:text-secondary-600"> robust functionality </span>
+              Next.js is the backbone of this project, providing
+              <span className="text-primary-500 dark:text-primary-400"> robust functionality </span>
               and smooth integration, which streamlines development and enhances the
-              <span className="text-secondary-400 dark:text-secondary-600"> user experience </span>.
+              <span className="text-primary-500 dark:text-primary-400"> user experience </span>.
             </motion.p>
           </div>
           <Divider orientation="vertical" />
-          <div className="flex items-center justify-center h-full w-full md:w-1/2 bg-white text-black dark:text-white dark:bg-black">
-            <Suspense fallback={<Spinner label="Loading..." color="secondary" labelColor="secondary"/>}>
+          <div className={`bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 transition-all flex items-center justify-center h-1/2 ${isModelMaximized ? 'w-full' : 'w-1/3 md:w-1/5'} bg-white dark:bg-black absolute bottom-4 right-4 md:bottom-8 md:right-8 shadow-xl rounded-lg cursor-pointer`}
+            onClick={toggleModelView}>
+            <Suspense fallback={<Skeleton className="w-full h-full" />}>
               <Model />
             </Suspense>
           </div>
