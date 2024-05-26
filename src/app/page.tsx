@@ -10,7 +10,7 @@ import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Model } from "@/components/ModelViewer";
 import { easeOut, motion, spring } from "framer-motion";
 import { Suspense, useState } from "react";
-import { Card, Skeleton, Spinner } from "@nextui-org/react";
+import { Button, Card, Skeleton, Spinner } from "@nextui-org/react";
 
 export default function Home() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
@@ -19,12 +19,12 @@ export default function Home() {
     setIsModelMaximized(!isModelMaximized);
   };
   return (
-    <main className="flex flex-col min-h-screen min-w-screen relative overflow-x-hidden">
+    <main className="flex flex-col min-h-screen min-w-screen relative overflow-x-hidden" onClick={() => isModelMaximized && setIsModelMaximized(false)}>
 
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
         {/* TODO: hacer que le afecte el modo oscuro */}
-        {/* <BackgroundGradientAnimation
+        <BackgroundGradientAnimation
           firstColor="0, 0, 0"
           secondColor="0, 0, 0"
           thirdColor="0, 0, 0"
@@ -33,10 +33,10 @@ export default function Home() {
           pointerColor="179, 0, 255"
           gradientBackgroundEnd="rgb(69, 12, 161)"
           gradientBackgroundStart="rgb(0, 0, 0)"
-        /> */}
+        />
       </div>
 
-      <div className="fixed mt-4 mr-6 z-20 right-0">
+      <div className="fixed mt-4 mr-6 z-10 right-0">
         <ThemeSwitcher />
       </div>
 
@@ -74,17 +74,29 @@ export default function Home() {
             <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
               initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
               Next.js is the backbone of this project, providing
-              <span className="text-primary-500 dark:text-primary-400"> robust functionality </span>
+              <span className="text-secondary-400"> robust functionality </span>
               and smooth integration, which streamlines development and enhances the
-              <span className="text-primary-500 dark:text-primary-400"> user experience </span>.
+              <span className="text-secondary-400"> user experience </span>.
             </motion.p>
           </div>
-          <Divider orientation="vertical" />
-          <div className={`bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 transition-all flex items-center justify-center h-1/2 ${isModelMaximized ? 'w-full' : 'w-1/3 md:w-1/5'} bg-white dark:bg-black absolute bottom-4 right-4 md:bottom-8 md:right-8 shadow-xl rounded-lg cursor-pointer`}
-            onClick={toggleModelView}>
-            <Suspense fallback={<Skeleton className="w-full h-full" />}>
-              <Model />
-            </Suspense>
+          <div className="flex flex-row">
+            <div
+              className={`z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg cursor-pointer transition-all ${isModelMaximized ? 'fixed inset-12 right-16 ring-neutral-700 hover:ring-neutral-700 cursor-move' : 'absolute h-1/2 w-1/2 md:w-1/5 bottom-4 right-4 md:bottom-8 md:right-8'}`}
+              onClick={(e) => {
+                if (isModelMaximized) {
+                  e.stopPropagation();
+                } else setIsModelMaximized(!isModelMaximized);
+              }}
+            >
+              <Suspense fallback={<Skeleton className="w-full h-full" />}>
+                <Model />
+              </Suspense>
+            </div>
+            {/* {isModelMaximized && (
+              <div className={`z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg transition-all w-1/2 fixed inset-12`}>
+                <p>Contenido de React</p>
+              </div>
+            )} */}
           </div>
         </div>
 

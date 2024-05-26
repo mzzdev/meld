@@ -59,7 +59,7 @@ export function Model() {
         </Center>
         <Center position={[0, -1, 0]} rotation={[-0.25, 0, 0]}>
           <PresentationControls
-            global={false}
+            global
             cursor={false}
             snap={true}
             polar={[0, 0]}
