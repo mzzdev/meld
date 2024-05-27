@@ -11,6 +11,7 @@ import { Model } from "@/components/ModelViewer";
 import { easeOut, motion, spring } from "framer-motion";
 import { Suspense, useState } from "react";
 import { Button, Card, Skeleton, Spinner } from "@nextui-org/react";
+import { LampDemo, LampContainer } from "@/components/ui/lamp";
 
 export default function Home() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
@@ -20,10 +21,8 @@ export default function Home() {
   };
   return (
     <main className="flex flex-col min-h-screen min-w-screen relative overflow-x-hidden" onClick={() => isModelMaximized && setIsModelMaximized(false)}>
-
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
-        {/* TODO: hacer que le afecte el modo oscuro */}
         <BackgroundGradientAnimation
           firstColor="0, 0, 0"
           secondColor="0, 0, 0"
@@ -64,43 +63,53 @@ export default function Home() {
         <Divider />
 
         {/* nextjs & react */}
-        <div className={`relative flex w-full h-[50vh] ${isModelMaximized ? 'flex-row' : 'flex-col md:flex-row'}`}>
-          <div className={`h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center`}>
-            <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
-            <motion.p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"
-              initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
-              Next.js
-            </motion.p>
-            <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
-              initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
-              Next.js is the backbone of this project, providing
-              <span className="text-secondary-400"> robust functionality </span>
-              and smooth integration, which streamlines development and enhances the
-              <span className="text-secondary-400"> user experience </span>.
-            </motion.p>
-          </div>
-          <div className="flex flex-row">
+        {isModelMaximized ? (
+          <div className="relative w-full h-[50vh] flex flex-row gap-4">
             <div
-              className={`z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg cursor-pointer transition-all ${isModelMaximized ? 'fixed inset-12 right-16 ring-neutral-700 hover:ring-neutral-700 cursor-move' : 'absolute h-1/2 w-1/2 md:w-1/5 bottom-4 right-4 md:bottom-8 md:right-8'}`}
+              className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 bg-white dark:bg-black shadow-xl rounded-lg cursor-move transition-all fixed inset-12 right-[calc(50%+1rem)]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Suspense fallback={<Skeleton className="w-full h-full" />}>
+                <Model />
+              </Suspense>
+            </div>
+            <div className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg transition-all fixed inset-12 left-[calc(50%+1rem)]">
+              <p>[placeholder]</p>
+              {/* <LampDemo /> */}
+            </div>
+          </div>
+        ) : (
+          <div className="relative flex flex-col md:flex-row w-full h-[50vh]">
+            <div className="h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
+              <motion.p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"
+                initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
+                Next.js
+              </motion.p>
+              <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
+                initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
+                Next.js is the backbone of this project, providing
+                <span className="text-secondary-400"> robust functionality </span>
+                and smooth integration, which streamlines development and enhances the
+                <span className="text-secondary-400"> user experience </span>.
+              </motion.p>
+            </div>
+            <div
+              className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg cursor-pointer transition-all absolute h-1/2 w-1/2 md:w-1/5 bottom-4 right-4 md:bottom-8 md:right-8"
               onClick={(e) => {
-                if (isModelMaximized) {
-                  e.stopPropagation();
-                } else setIsModelMaximized(!isModelMaximized);
+                e.stopPropagation();
+                setIsModelMaximized(true);
               }}
             >
               <Suspense fallback={<Skeleton className="w-full h-full" />}>
                 <Model />
               </Suspense>
             </div>
-            {/* {isModelMaximized && (
-              <div className={`z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg transition-all w-1/2 fixed inset-12`}>
-                <p>Contenido de React</p>
-              </div>
-            )} */}
           </div>
-        </div>
-
+        )}
       </div>
     </main>
+
+
   );
 }
