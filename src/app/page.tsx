@@ -12,6 +12,7 @@ import { easeOut, motion, spring } from "framer-motion";
 import { Suspense, useState } from "react";
 import { Button, Card, Skeleton, Spinner } from "@nextui-org/react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+// import { Vortex } from "@/components/ui/vortex-background";
 
 export default function Home() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
@@ -20,7 +21,7 @@ export default function Home() {
     setIsModelMaximized(!isModelMaximized);
   };
   return (
-    <main className="flex flex-col min-h-screen min-w-screen relative overflow-x-hidden" onClick={() => isModelMaximized && setIsModelMaximized(false)}>
+    <main className="flex md:flex-col min-h-screen min-w-screen relative overflow-x-hidden" onClick={() => isModelMaximized && setIsModelMaximized(false)}>
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
         <BackgroundGradientAnimation
@@ -35,14 +36,16 @@ export default function Home() {
         />
       </div>
 
-      <div className="fixed mt-4 mr-6 z-10 right-0">
+      {/* dark mode switch */}
+      <div className="fixed mt-2 md:mt-4 md:mr-6 z-20 right-0">
         <ThemeSwitcher />
       </div>
 
-      {/* logo card */}
-      <div className="flex-grow h-screen relative z-10 m-2 md:m-0 ring-1 ring-neutral-700 pointer-events-none">
-        <div className="flex justify-center items-center h-full">
-          <div className="bg-white dark:bg-black p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto">
+      <div className="flex-grow h-screen relative z-10 md:m-0 md:ring-1 ring-neutral-700 pointer-events-none">
+
+        {/* logo card */}
+        <div className="flex justify-center items-center h-full ">
+          <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto">
             <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
               <motion.div initial={{ filter: "blur(5px)", opacity: 0 }} whileInView={{ filter: "blur(0)", opacity: 1 }} transition={{ duration: .5, delay: 0, ease: "linear" }}>
                 <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-black dark:text-white">
@@ -64,7 +67,7 @@ export default function Home() {
 
         {/* nextjs & react */}
         {isModelMaximized ? (
-          <div className="relative w-full h-[50vh] flex flex-row gap-4">
+          <div className="relative w-full h-[50vh] flex flex-col md:flex-row gap-4">
             <div
               className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 bg-white dark:bg-black shadow-xl rounded-lg cursor-grab transition-all fixed inset-12 right-[calc(50%+1rem)]"
               onClick={(e) => e.stopPropagation()}
@@ -78,8 +81,6 @@ export default function Home() {
                 className="leading-tight font-semibold text-sm tracking-tight m-24"
                 words="React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects." />
             </div>
-
-
           </div>
         ) : (
           <div className="relative flex flex-col md:flex-row w-full h-[50vh]">
@@ -98,7 +99,7 @@ export default function Home() {
               </motion.p>
             </div>
             <div
-              className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg cursor-pointer transition-all absolute h-1/2 w-1/2 md:w-1/5 bottom-4 right-4 md:bottom-8 md:right-8"
+              className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg cursor-pointer transition-all absolute h-1/4 w-1/4 md:h-1/2 md:w-1/5 top-4 right-4 md:top-auto md:bottom-8 md:right-8"
               onClick={(e) => {
                 e.stopPropagation();
                 setIsModelMaximized(true);
@@ -110,6 +111,14 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        <Divider />
+
+        {/* tailwind */}
+        <div className="relative flex flex-col md:flex-row w-full h-[50vh] bg-cyan-800">
+          {/* <Vortex /> */}
+        </div>
+
       </div>
     </main>
   );
