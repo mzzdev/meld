@@ -2,17 +2,15 @@
 
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Divider } from "@nextui-org/divider";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Model } from "@/components/ModelViewer";
-import { easeOut, motion, spring } from "framer-motion";
+import { motion } from "framer-motion";
 import { Suspense, useState } from "react";
-import { Button, Card, Skeleton, Spinner } from "@nextui-org/react";
+import { Skeleton } from "@nextui-org/react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
-// import { Vortex } from "@/components/ui/vortex-background";
 
 export default function Home() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
@@ -76,10 +74,11 @@ export default function Home() {
                 <Model />
               </Suspense>
             </div>
-            <div className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg transition-all fixed inset-12 left-[calc(50%+1rem)]">
+            <div className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] shadow-xl rounded-lg transition-all fixed inset-12 left-[calc(50%+1rem)]">
               <TextGenerateEffect
                 className="leading-tight font-semibold text-sm tracking-tight m-24"
-                words="React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects." />
+                words="React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects."
+              />
             </div>
           </div>
         ) : (
@@ -115,8 +114,47 @@ export default function Home() {
         <Divider />
 
         {/* tailwind */}
-        <div className="relative flex flex-col md:flex-row w-full h-[50vh] bg-cyan-800">
-          {/* <Vortex /> */}
+        <div className="h-[50vh] w-full flex flex-row items-center justify-center overflow-hidden rounded-md bg-white dark:bg-black text-black dark:text-white text-center">
+          <motion.div
+            initial={{ x: '33vw' }}
+            whileInView={{ x: 'calc(33vw - 25rem)' }}
+            transition={{ duration: .75, delay: 1, ease: "easeInOut" }}
+          >
+            <p className="z-20 md:text-9xl text-3xl font-bold text-center leading-tight tracking-tight from-[#38bdf7] to-[#0531f1] bg-gradient-to-b bg-clip-text text-transparent">
+              Tailwind
+            </p>
+            <div className="w-[40rem] relative">
+              {/* Gradients */}
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-sky-800 to-transparent h-[2px] w-3/4 blur-sm" />
+              <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-sky-800 to-transparent h-px w-3/4" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-600 to-transparent h-[5px] w-1/4 blur-sm" />
+              <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-600 to-transparent h-px w-1/4" />
+
+              {/* Core component */}
+              <Suspense fallback={<Skeleton className="w-full h-full" />}>
+                <SparklesCore
+                  background="transparent"
+                  minSize={.1}
+                  maxSize={1}
+                  particleDensity={1200}
+                  className="w-full h-full"
+                  particleColor="#FFFFFF"
+                />
+              </Suspense>
+
+              {/* Radial Gradient to prevent sharp edges */}
+              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+              {/* <div className={`absolute inset-0 w-full h-full bg-black [mask-image: ${isDarkMode ? 'radial-gradient(350px_200px_at_top,transparent_20%,white)' : 'radial-gradient(350px_200px_at_top,transparent_20%,black)'}]`}></div> */}
+            </div>
+          </motion.div>
+          <motion.p
+            className="max-w-sm m-auto text-lg"
+            initial={{ filter: "blur(5px)", opacity: 0 }}
+            whileInView={{ filter: "blur(0)", opacity: 1 }}
+            transition={{ duration: .5, delay: 2, ease: "linear" }}
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </motion.p>
         </div>
 
       </div>
