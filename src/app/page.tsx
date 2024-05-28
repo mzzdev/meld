@@ -11,7 +11,7 @@ import { Model } from "@/components/ModelViewer";
 import { easeOut, motion, spring } from "framer-motion";
 import { Suspense, useState } from "react";
 import { Button, Card, Skeleton, Spinner } from "@nextui-org/react";
-import { LampDemo, LampContainer } from "@/components/ui/lamp";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 export default function Home() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
@@ -66,7 +66,7 @@ export default function Home() {
         {isModelMaximized ? (
           <div className="relative w-full h-[50vh] flex flex-row gap-4">
             <div
-              className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 bg-white dark:bg-black shadow-xl rounded-lg cursor-move transition-all fixed inset-12 right-[calc(50%+1rem)]"
+              className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 bg-white dark:bg-black shadow-xl rounded-lg cursor-grab transition-all fixed inset-12 right-[calc(50%+1rem)]"
               onClick={(e) => e.stopPropagation()}
             >
               <Suspense fallback={<Skeleton className="w-full h-full" />}>
@@ -74,9 +74,12 @@ export default function Home() {
               </Suspense>
             </div>
             <div className="z-20 flex items-center justify-center bordered-lg ring-1 ring-inset ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg transition-all fixed inset-12 left-[calc(50%+1rem)]">
-              <p>[placeholder]</p>
-              {/* <LampDemo /> */}
+              <TextGenerateEffect
+                className="leading-tight font-semibold text-sm tracking-tight m-24"
+                words="React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects." />
             </div>
+
+
           </div>
         ) : (
           <div className="relative flex flex-col md:flex-row w-full h-[50vh]">
@@ -109,7 +112,5 @@ export default function Home() {
         )}
       </div>
     </main>
-
-
   );
 }
