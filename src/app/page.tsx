@@ -8,18 +8,23 @@ import { SparklesCore } from "@/components/ui/sparkles";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Model } from "@/components/ModelViewer";
 import { motion } from "framer-motion";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Skeleton } from "@nextui-org/react";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { useTheme } from "next-themes";
 
 export default function Home() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
+  const { theme } = useTheme();
+  const [particleColor, setParticleColor] = useState("#FFFFFF");
 
-  const toggleModelView = () => {
-    setIsModelMaximized(!isModelMaximized);
-  };
+  useEffect(() => {
+    setParticleColor(theme === "dark" ? "#FFFFFF" : "#000000");
+  }, [theme]);
+
   return (
     <main className="flex md:flex-col min-h-screen min-w-screen relative overflow-x-hidden" onClick={() => isModelMaximized && setIsModelMaximized(false)}>
+
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
         <BackgroundGradientAnimation
@@ -42,10 +47,10 @@ export default function Home() {
       <div className="flex-grow h-screen relative z-10 md:m-0 md:ring-1 ring-neutral-700 pointer-events-none">
 
         {/* logo card */}
-        <div className="flex justify-center items-center h-full ">
+        <div className="flex justify-center items-center h-full">
           <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto">
             <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
-              <motion.div initial={{ filter: "blur(5px)", opacity: 0 }} whileInView={{ filter: "blur(0)", opacity: 1 }} transition={{ duration: .5, delay: 0, ease: "linear" }}>
+              <motion.div initial={{ filter: "blur(5px)", opacity: 0 }} whileInView={{ filter: "blur(0)", opacity: 1 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "linear" }}>
                 <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-black dark:text-white">
                   <Highlight className=""><span className="">Meld</span></Highlight> is a showcase web project.
                 </p>
@@ -61,7 +66,7 @@ export default function Home() {
           </div>
         </div>
 
-        <Divider />
+        <Divider className="bg-neutral-200 dark:bg-neutral-800" />
 
         {/* nextjs & react */}
         {isModelMaximized ? (
@@ -85,12 +90,12 @@ export default function Home() {
           <div className="relative flex flex-col md:flex-row w-full h-[50vh]">
             <div className="h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
               <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
-              <motion.p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8"
-                initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
+              <motion.p className="text-5xl md:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-4"
+                initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
                 Next.js
               </motion.p>
               <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
-                initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
+                initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
                 Next.js is the backbone of this project, providing
                 <span className="text-secondary-400"> robust functionality </span>
                 and smooth integration, which streamlines development and enhances the
@@ -111,26 +116,25 @@ export default function Home() {
           </div>
         )}
 
-        <Divider />
+        <Divider className="bg-neutral-200 dark:bg-neutral-800" />
 
         {/* tailwind */}
-        <div className="h-[50vh] w-full flex flex-row items-center justify-center overflow-hidden rounded-md bg-white dark:bg-black text-black dark:text-white text-center">
+        <div className="h-auto w-screen flex flex-col items-center bg-white dark:bg-black">
           <motion.div
-            initial={{ x: '33vw' }}
-            whileInView={{ x: 'calc(33vw - 25rem)' }}
-            transition={{ duration: .75, delay: 1, ease: "easeInOut" }}
+            className="mt-8"
+            initial={{ filter: "blur(5px)" }}
+            whileInView={{ filter: "blur(0)" }}
+            viewport={{ once: true }}
+            transition={{ duration: .75, delay: 0, ease: "easeInOut" }}
           >
-            <p className="z-20 md:text-9xl text-3xl font-bold text-center leading-tight tracking-tight from-[#38bdf7] to-[#0531f1] bg-gradient-to-b bg-clip-text text-transparent">
+            <p className="z-20 text-5xl md:text-9xl font-bold text-center leading-tight tracking-tight from-[#38bdf7] to-[#0531f1] bg-gradient-to-b bg-clip-text text-transparent">
               Tailwind
             </p>
             <div className="w-[40rem] relative">
-              {/* Gradients */}
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-sky-800 to-transparent h-[2px] w-3/4 blur-sm" />
               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-sky-800 to-transparent h-px w-3/4" />
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-600 to-transparent h-[5px] w-1/4 blur-sm" />
               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-600 to-transparent h-px w-1/4" />
-
-              {/* Core component */}
               <Suspense fallback={<Skeleton className="w-full h-full" />}>
                 <SparklesCore
                   background="transparent"
@@ -138,22 +142,20 @@ export default function Home() {
                   maxSize={1}
                   particleDensity={1200}
                   className="w-full h-full"
-                  particleColor="#FFFFFF"
+                  particleColor={ particleColor }
                 />
               </Suspense>
-
-              {/* Radial Gradient to prevent sharp edges */}
-              <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
-              {/* <div className={`absolute inset-0 w-full h-full bg-black [mask-image: ${isDarkMode ? 'radial-gradient(350px_200px_at_top,transparent_20%,white)' : 'radial-gradient(350px_200px_at_top,transparent_20%,black)'}]`}></div> */}
+              <div className={`absolute inset-0 w-full h-full bg-white dark:bg-black ${theme === 'dark' ? ' [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]' : ' [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,black)]'}`}></div>
             </div>
           </motion.div>
           <motion.p
-            className="max-w-sm m-auto text-lg"
-            initial={{ filter: "blur(5px)", opacity: 0 }}
-            whileInView={{ filter: "blur(0)", opacity: 1 }}
-            transition={{ duration: .5, delay: 2, ease: "linear" }}
+            className="max-w-md m-8 leading-tight font-semibold text-center text-lg tracking-tight from-[#89d1f0] to-[#2b4ff1] bg-gradient-to-b bg-clip-text text-transparent"
+            initial={{ filter: "blur(5px)", opacity: 0, y: -20 }}
+            whileInView={{ filter: "blur(0)", opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: .5, delay: .25, ease: "easeInOut" }}
           >
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            Tailwind CSS is an exceptional utility-first CSS framework that enhances the design and development process by providing a comprehensive set of pre-defined classes. It empowers developers to build responsive and modern interfaces directly within the markup, ensuring consistent styling and rapid prototyping. By leveraging Tailwind CSS, this project benefits from a streamlined workflow, minimizing the need for custom CSS and enabling quick adjustments to the design. The flexibility and modularity of Tailwind allow for seamless integration with existing components, maintaining the aesthetic coherence of the entire application.
           </motion.p>
         </div>
 
