@@ -90,11 +90,11 @@ export default function Home() {
           <div className="relative flex flex-col md:flex-row w-full h-[50vh]">
             <div className="h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
               <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
-              <motion.p className="text-5xl md:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-4"
+              <motion.p className="text-5xl md:text-7xl font-bold tracking-tight relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-4"
                 initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
                 Next.js
               </motion.p>
-              <motion.p className="relative max-w-96 text-lg sm:text-xl font-medium text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
+              <motion.p className="relative max-w-96 text-lg font-semibold leading-tight tracking-tight text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
                 initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
                 Next.js is the backbone of this project, providing
                 <span className="text-secondary-400"> robust functionality </span>
@@ -149,7 +149,7 @@ export default function Home() {
             </div>
           </motion.div>
           <motion.p
-            className="max-w-md m-8 leading-tight font-semibold text-center text-lg tracking-tight from-[#89d1f0] to-[#2b4ff1] bg-gradient-to-b bg-clip-text text-transparent"
+            className="max-w-md m-8 text-lg font-semibold leading-tight tracking-tight text-center from-sky-600 to-blue-700 bg-gradient-to-b bg-clip-text text-transparent"
             initial={{ filter: "blur(5px)", opacity: 0, y: -20 }}
             whileInView={{ filter: "blur(0)", opacity: 1, y: 0 }}
             viewport={{ once: true }}
