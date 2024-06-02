@@ -1,21 +1,22 @@
 'use client';
 
+import { Suspense, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from 'next/link';
+
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import Image from "next/image";
-import { Divider } from "@nextui-org/divider";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { Model } from "@/components/ModelViewer";
+
+import { Divider, Button, Skeleton, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { Suspense, useEffect, useState } from "react";
-import { Button, Skeleton } from "@nextui-org/react";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownSection, DropdownItem } from "@nextui-org/dropdown";
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
-import { useRouter } from "next/navigation";
 import { US, ES } from 'country-flag-icons/react/3x2';
 
 export default function Home() {
@@ -52,10 +53,10 @@ export default function Home() {
         />
       </div>
 
-      {/* dark mode switch */}
-      <div className="fixed mt-2 md:mt-4 md:mr-6 z-20 right-0">
+      {/* controls */}
+      <div className="fixed mt-2 md:mt-4 md:mr-6 z-20 right-0 flex flex-row gap-2">
         <Dropdown className="text-black dark:text-white dark:bg-black">
-          <DropdownTrigger>
+          <DropdownTrigger className="w-auto h-auto">
             <Button isIconOnly>
               <GlobeAltIcon className="w-6 h-6" />
             </Button>
@@ -75,6 +76,7 @@ export default function Home() {
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
+
         <ThemeSwitcher />
       </div>
 
@@ -90,7 +92,7 @@ export default function Home() {
                 </p>
               </motion.div>
               <Image
-                src={'/logo/png.png'}
+                src={'/icons/logo/logo.png'}
                 alt={'meld-logo'}
                 width={375}
                 height={375}
@@ -182,7 +184,7 @@ export default function Home() {
             </div>
           </motion.div>
           <motion.p
-            className="max-w-md m-8 text-lg font-semibold leading-tight tracking-tight text-center from-sky-600 to-blue-700 bg-gradient-to-b bg-clip-text text-transparent"
+            className="max-w-md m-10 mb-16 text-lg font-semibold leading-tight tracking-tight text-center from-sky-600 to-blue-700 bg-gradient-to-b bg-clip-text text-transparent"
             initial={{ filter: "blur(5px)", opacity: 0, y: -20 }}
             whileInView={{ filter: "blur(0)", opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -190,6 +192,39 @@ export default function Home() {
           >
             {t('tailwind.description')}
           </motion.p>
+        </div>
+
+        <Divider className="bg-neutral-200 dark:bg-neutral-800" />
+
+        {/* footer (WIP) */}
+        <div className="flex flex-col items-center text-center py-8 space-y-4 pointer-events-auto bg-white dark:bg-black">
+          <div className="flex items-center space-x-2">
+            <Link href="https://github.com/mzzdev/meld" target="_blank" className="hover:opacity-50 transition-all">
+              <Image
+                src={'/icons/github.svg'}
+                alt={'github-logo'}
+                width={25}
+                height={25}
+                className="pointer-events-none select-none"
+              />
+            </Link>
+          </div>
+          <div className="leading-8 font-semibold text-medium tracking-tight text-black dark:text-white">
+            <p>
+              {t.rich('footer.madeWithLove', {
+                link: (chunks) => (
+                  <Link href="https://github.com/mzzdev/" target="_blank" className="hover:opacity-50 transition-all">
+                    {chunks}
+                  </Link>
+                )
+              })}
+            </p>
+            <p>
+              <Link href="https://meld-mu.vercel.app/" className="hover:opacity-50 transition-opacity">
+                Meld
+              </Link> | {new Date().getFullYear()}
+            </p>
+          </div>
         </div>
 
       </div>
