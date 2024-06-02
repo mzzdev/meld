@@ -1,0 +1,21 @@
+{
+  "Home": {
+    "navBar": {
+      "langs": {
+        "en": "Inglés",
+        "es": "Español"
+      }
+    },
+    "logoCard": {
+      "title": "es un proyecto web de demostración."
+    },
+    "modelDescription": "React es una poderosa biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario, particularmente aplicaciones de una sola página. Permite a los desarrolladores crear componentes de interfaz de usuario reutilizables, que gestionan su propio estado y pueden componerse para construir interfaces de usuario complejas. La naturaleza declarativa de React hace que sea fácil de predecir y depurar, mejorando la productividad del desarrollador y el mantenimiento del código. Al aprovechar un DOM virtual, React actualiza y renderiza componentes de manera eficiente cuando los datos cambian, asegurando un rendimiento óptimo. Además, el vasto ecosistema de React, incluyendo hooks, la API de contexto y la integración con otras bibliotecas y frameworks, proporciona herramientas extensas y flexibilidad para construir aplicaciones web dinámicas y responsivas. Su uso en conjunto con Next.js permite la renderización del lado del servidor y la generación de sitios estáticos, optimizando aún más el rendimiento y el SEO de los proyectos web modernos.",
+    "nextjs": {
+      "description": "Next.js es la columna vertebral de este proyecto, proporcionando <highlight>funcionalidad robusta</highlight> y una integración fluida, lo que agiliza el desarrollo y mejora la <highlight>experiencia del usuario</highlight>.",
+      "react": "React es una poderosa biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario, particularmente aplicaciones de una sola página. Permite a los desarrolladores crear componentes de interfaz de usuario reutilizables, que gestionan su propio estado y pueden componerse para construir interfaces de usuario complejas. La naturaleza declarativa de React hace que sea fácil de predecir y depurar, mejorando la productividad del desarrollador y el mantenimiento del código. Al aprovechar un DOM virtual, React actualiza y renderiza componentes de manera eficiente cuando los datos cambian, asegurando un rendimiento óptimo. Además, el vasto ecosistema de React, incluyendo hooks, la API de contexto y la integración con otras bibliotecas y frameworks, proporciona herramientas extensas y flexibilidad para construir aplicaciones web dinámicas y responsivas. Su uso en conjunto con Next.js permite la renderización del lado del servidor y la generación de sitios estáticos, optimizando aún más el rendimiento y el SEO de los proyectos web modernos."
+    },
+    "tailwind": {
+      "description": "Tailwind CSS es un excepcional marco de CSS basado en utilidades que mejora el diseño y el proceso de desarrollo al proporcionar un conjunto completo de clases predefinidas. Permite a los desarrolladores construir interfaces responsivas y modernas directamente dentro del marcado, asegurando un estilo consistente y una rápida creación de prototipos. Al aprovechar Tailwind CSS, este proyecto se beneficia de un flujo de trabajo simplificado, minimizando la necesidad de CSS personalizado y permitiendo ajustes rápidos al diseño. La flexibilidad y modularidad de Tailwind permiten una integración perfecta con los componentes existentes, manteniendo la coherencia estética de toda la aplicación."
+    }
+  }
+}
