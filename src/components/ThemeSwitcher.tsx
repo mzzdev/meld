@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Switch } from "@nextui-org/switch";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
@@ -11,6 +11,11 @@ export function ThemeSwitcher() {
 
   // const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const [isChecked, setChecked] = useState(false);
+
+  useEffect(() => {
+    setChecked(theme === "dark");
+  }, [theme]);
 
   // useEffect(() => {
   //   setMounted(true)
@@ -19,19 +24,17 @@ export function ThemeSwitcher() {
   // if(!mounted) return null
 
   const toggleTheme = () => {
-    if (theme === 'dark') {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
-  }
+    setTheme(isChecked ? "light" : "dark");
+    setChecked(!isChecked);
+  };
 
   return (
-    <Switch 
+    <Switch
       startContent={<SunIcon />}
       endContent={<MoonIcon />}
-      onChange={toggleTheme}
       color="secondary"
+      onChange={toggleTheme}
+      isSelected={!isChecked}
     />
   )
 };
