@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/cn";
+import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
 export const BackgroundGradientAnimation = ({
@@ -39,24 +40,49 @@ export const BackgroundGradientAnimation = ({
   const [curY, setCurY] = useState(0);
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
+
+  const { theme } = useTheme();
+
   useEffect(() => {
+    const colorsDark = {
+      firstColor: "0, 0, 0",
+      secondColor: "0, 0, 0",
+      thirdColor: "0, 0, 0",
+      fourthColor: "0, 0, 0",
+      fifthColor: "0, 0, 0",
+      pointerColor: "179, 0, 255",
+      gradientBackgroundEnd: "rgb(69, 12, 161)",
+      gradientBackgroundStart: "rgb(0, 0, 0)"
+    };
+
+    const colorsLight = {
+      firstColor: "255, 255, 255",
+      secondColor: "255, 255, 255",
+      thirdColor: "255, 255, 255",
+      fourthColor: "255, 255, 255",
+      fifthColor: "255, 255, 255",
+      pointerColor: "179, 0, 255",
+      gradientBackgroundEnd: "rgb(69, 12, 161)",
+      gradientBackgroundStart: "rgb(255, 255, 255)"
+    };
+
+    const colors = theme === "dark" ? colorsDark : colorsLight;
+
     document.body.style.setProperty(
       "--gradient-background-start",
-      gradientBackgroundStart
+      colors.gradientBackgroundStart
     );
     document.body.style.setProperty(
       "--gradient-background-end",
-      gradientBackgroundEnd
+      colors.gradientBackgroundEnd
     );
-    document.body.style.setProperty("--first-color", firstColor);
-    document.body.style.setProperty("--second-color", secondColor);
-    document.body.style.setProperty("--third-color", thirdColor);
-    document.body.style.setProperty("--fourth-color", fourthColor);
-    document.body.style.setProperty("--fifth-color", fifthColor);
-    document.body.style.setProperty("--pointer-color", pointerColor);
-    document.body.style.setProperty("--size", size);
-    document.body.style.setProperty("--blending-value", blendingValue);
-  }, []);
+    document.body.style.setProperty("--first-color", colors.firstColor);
+    document.body.style.setProperty("--second-color", colors.secondColor);
+    document.body.style.setProperty("--third-color", colors.thirdColor);
+    document.body.style.setProperty("--fourth-color", colors.fourthColor);
+    document.body.style.setProperty("--fifth-color", colors.fifthColor);
+    document.body.style.setProperty("--pointer-color", colors.pointerColor);
+  }, [theme]);
 
   useEffect(() => {
     function move() {
