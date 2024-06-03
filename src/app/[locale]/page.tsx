@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* logo background */}
       <div className="absolute inset-0 bg-purple-950 z-10 pointer-events-auto">
-        <BackgroundGradientAnimation
+        {/* <BackgroundGradientAnimation
           firstColor="0, 0, 0"
           secondColor="0, 0, 0"
           thirdColor="0, 0, 0"
@@ -50,7 +50,7 @@ export default function Home() {
           pointerColor="179, 0, 255"
           gradientBackgroundEnd="rgb(69, 12, 161)"
           gradientBackgroundStart="rgb(0, 0, 0)"
-        />
+        /> */}
       </div>
 
       {/* controls */}
