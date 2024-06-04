@@ -7,7 +7,7 @@ Proyecto de exhibición
 
 - Componentización
 
-- ✅ Integración de modo oscuro (⚠️ faltan cosas)
+- ✅ Integración de modo oscuro
 
 - ✅ Diseño responsive (⚠️ faltan cosas)
 
@@ -15,9 +15,7 @@ Proyecto de exhibición
 
 - ✅ Animaciones con framer-motion
 
-- [Optimización](https://nextjs.org/docs/app/building-your-application/optimizing) y limpieza de módulos de Node
-
-- Animaciones con GSAP
+- ✅ [Optimización](https://nextjs.org/docs/app/building-your-application/optimizing) y limpieza de módulos de Node
 
 - Demostración de terreno procedural en 3D
 

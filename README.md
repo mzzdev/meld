@@ -7,7 +7,7 @@ Showcase project
 
 - Componentization
 
-- ✅ Dark mode integration (⚠️ things missing)
+- ✅ Dark mode integration
 
 - ✅ Responsive design (⚠️ things missing)
 
@@ -15,9 +15,7 @@ Showcase project
 
 - ✅ framer-motion
 
-- [Optimization](https://nextjs.org/docs/app/building-your-application/optimizing) and Node module cleaning
-
-- GSAP animations
+- ✅ [Optimization](https://nextjs.org/docs/app/building-your-application/optimizing) and Node module cleaning
 
 - 3d Procedural terrain demo
 
