@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, lusitana } from "@/components/ui/fonts";
+import { inter } from "@/components/ui/fonts";
 import "./globals.css";
 import { Providers } from "./providers";
 import { NextIntlClientProvider } from 'next-intl';
@@ -17,8 +17,6 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
