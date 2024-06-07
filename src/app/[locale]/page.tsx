@@ -15,8 +15,9 @@ import { Divider, Skeleton } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
+import { Link } from '@/navigation'; // <-- next-intl navigation
 
-export default function Home() {
+export default function Lab() {
   const [isModelMaximized, setIsModelMaximized] = useState(false);
   const { theme } = useTheme();
   const [particleColor, setParticleColor] = useState("#FFFFFF");
@@ -40,22 +41,24 @@ export default function Home() {
       <div className="relative w-full h-screen flex flex-col justify-center items-center bg-purple-950 z-10 pointer-events-auto">
         <BackgroundGradientAnimation />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto">
-            <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
-              <motion.div initial={{ filter: "blur(5px)", opacity: 0 }} whileInView={{ filter: "blur(0)", opacity: 1 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "linear" }}>
-                <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-black dark:text-white">
-                  <Highlight className=""><span className="">Meld</span></Highlight> {t('logoCard.title')}
-                </p>
-              </motion.div>
-              <Image
-                src={'/icons/logo/logo.png'}
-                alt={'meld-logo'}
-                width={375}
-                height={375}
-                className="pointer-events-none select-none"
-              />
-            </HeroHighlight>
-          </div>
+          <Link href="/lab">
+            <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-700 border border-neutral-800 pointer-events-auto cursor-pointer hover:ring-neutral-400 transition-all hover:scale-105">
+              <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
+                <motion.div initial={{ filter: "blur(5px)", opacity: 0 }} whileInView={{ filter: "blur(0)", opacity: 1 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "linear" }}>
+                  <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-black dark:text-white">
+                    <Highlight className=""><span className="">Meld</span></Highlight> {t('logoCard.title')}
+                  </p>
+                </motion.div>
+                <Image
+                  src={'/icons/logo/logo.png'}
+                  alt={'meld-logo'}
+                  width={375}
+                  height={375}
+                  className="pointer-events-none select-none"
+                />
+              </HeroHighlight>
+            </div>
+          </Link>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/navigation"; // <-- next-intl navigation
 import { US, ES, RU } from 'country-flag-icons/react/3x2';
 import { useTranslations } from "next-intl";
 

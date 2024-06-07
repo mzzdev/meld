@@ -1,15 +1,53 @@
 # Meld
 
-Showcase project
+Meld is a showcase project of modern web development using technologies like Next.js, Tailwind and 3D libraries.
 
+
+## 🔗 Links
+
+You can access Meld online:
+
+[Meld (Vercel)](https://meld-mu.vercel.app/)
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/mzzdev/meld.git
+```
+
+Go to the project directory
+
+```bash
+  cd meld
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
 
 ## Roadmap
 
-- Componentization
+✅= Fully implemented
+⚠️= Under development
+❌= Not yet implemented
+
+
+- ⚠️ Componentization
 
 - ✅ Dark mode integration
 
-- ✅ Responsive design (⚠️ things missing)
+- ⚠️ Responsive design
 
 - ✅ i18n
 
@@ -17,6 +55,8 @@ Showcase project
 
 - ✅ [Optimization](https://nextjs.org/docs/app/building-your-application/optimizing) and Node module cleaning
 
-- 3d Procedural terrain demo
+- ❌ THREE.JS 3D Procedural Demo
 
-- Other tweaks (e.g. not-found page)
+- ❌ GLSL Demo
+
+- ❌ Other tweaks (e.g. not-found page)
