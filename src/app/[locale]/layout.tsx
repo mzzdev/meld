@@ -23,12 +23,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="dark">
       <body className={`${inter.className} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <Providers>
+        <Providers>
+          <NextIntlClientProvider messages={messages}>
             {children}
             <Footer />
-          </Providers>
-        </NextIntlClientProvider>
+          </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );
