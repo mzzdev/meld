@@ -17,9 +17,15 @@
     },
     "tailwind": {
       "description": "Tailwind CSS is an exceptional utility-first CSS framework that enhances the design and development process by providing a comprehensive set of pre-defined classes. It empowers developers to build responsive and modern interfaces directly within the markup, ensuring consistent styling and rapid prototyping. By leveraging Tailwind CSS, this project benefits from a streamlined workflow, minimizing the need for custom CSS and enabling quick adjustments to the design. The flexibility and modularity of Tailwind allow for seamless integration with existing components, maintaining the aesthetic coherence of the entire application."
-    },
-    "footer": {
-      "madeWithLove": "Made with ❤️ by <link>@mzzdev</link>"
+    }
+  },
+  "Footer": {
+    "madeWithLove": "Made with ❤️ by <link>@mzzdev</link>",
+    "deployedOn": "Deployed on",
+    "accesibility": {
+      "title": "Accessibility",
+      "description": "Meld utilises tools in order to improve the accessibility of the website utilising the Web Content Accessibility Guidelines as a guide.",
+      "moreInfo": "More info"
     }
   }
 }
