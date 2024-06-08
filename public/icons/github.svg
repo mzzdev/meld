@@ -2,12 +2,12 @@
   <defs>
     <style>
       path {
-        color: #666;
+        color: black;
       }
 
       @media (prefers-color-scheme: dark) {
          path {
-          color: #888;
+          color: white;
          }
       }
     </style>

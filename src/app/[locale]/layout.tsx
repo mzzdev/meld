@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Meld",
@@ -22,11 +23,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className="dark">
       <body className={`${inter.className} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <Providers>
+        <Providers>
+          <NextIntlClientProvider messages={messages}>
             {children}
-          </Providers>
-        </NextIntlClientProvider>
+            <Footer />
+          </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );

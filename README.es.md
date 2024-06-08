@@ -1,15 +1,53 @@
 # Meld
 
-Proyecto de exhibición
+Meld es un proyecto de exposición de desarrollo web moderno que utiliza tecnologías como Next.js, Tailwind y bibliotecas 3D.
 
 
-## Roadmap
+## 🔗 Links
 
-- Componentización
+Puedes acceder a Meld online:
+
+[Meld (Vercel)](https://meld-mu.vercel.app/)
+
+
+## Ejecutar localmente
+
+Clona el proyecto
+
+```bash
+  git clone https://github.com/mzzdev/meld.git
+```
+
+Ve al directorio del proyecto
+
+```bash
+  cd meld
+```
+
+Instala las dependencias
+
+```bash
+  npm install
+```
+
+Inicia el servidor
+
+```bash
+  npm run dev
+```
+
+## Planes
+
+✅ = Totalmente implementado
+⚠️ = En desarrollo
+❌ = Aún no implementado
+
+
+- ⚠️ Componentización
 
 - ✅ Integración de modo oscuro
 
-- ✅ Diseño responsive (⚠️ faltan cosas)
+- ⚠️ Diseño responsive
 
 - ✅ i18n (internacionalización)
 
@@ -17,6 +55,8 @@ Proyecto de exhibición
 
 - ✅ [Optimización](https://nextjs.org/docs/app/building-your-application/optimizing) y limpieza de módulos de Node
 
-- Demostración de terreno procedural en 3D
+- ❌ THREE.JS 3D Procedural Demo
 
-- Otras mejoras (ej. página not-found)
+- ❌ GLSL Demo
+
+- ❌ Otras mejoras (ej. página not-found)
