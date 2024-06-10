@@ -17,6 +17,9 @@
     },
     "tailwind": {
       "description": "Tailwind CSS es un excepcional marco de CSS basado en utilidades que mejora el diseño y el proceso de desarrollo al proporcionar un conjunto completo de clases predefinidas. Permite a los desarrolladores construir interfaces responsivas y modernas directamente dentro del marcado, asegurando un estilo consistente y una rápida creación de prototipos. Al aprovechar Tailwind CSS, este proyecto se beneficia de un flujo de trabajo simplificado, minimizando la necesidad de CSS personalizado y permitiendo ajustes rápidos al diseño. La flexibilidad y modularidad de Tailwind permiten una integración perfecta con los componentes existentes, manteniendo la coherencia estética de toda la aplicación."
+    },
+    "labButton": {
+      "title": "Entra al Lab"
     }
   },
   "Footer": {

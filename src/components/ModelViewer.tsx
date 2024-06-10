@@ -6,13 +6,12 @@ import { BBAnchor, CameraControls, Center, Fisheye, OrbitControls, PresentationC
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { Mesh } from "three";
 
-function MeshComponent() {
-  const fileUrl = "/models/react_logo/scene.gltf";
+function MeshComponent({ fileUrl, yRotation }: { fileUrl: string, yRotation: number }) {
   const mesh = useRef<Mesh>(null!);
   const gltf = useLoader(GLTFLoader, fileUrl);
 
   useFrame(() => {
-    mesh.current.rotation.y += 0.005;
+    mesh.current.rotation.y += yRotation;
   });
 
   return (
@@ -24,7 +23,7 @@ function MeshComponent() {
   );
 }
 
-export function Model() {
+export function Model({ fileUrl, yRotation }: { fileUrl: string, yRotation: number}) {
   return (
     <div className='flex justify-center items-center w-full h-full'>
       <Canvas className='h-full w-full'>
@@ -64,7 +63,7 @@ export function Model() {
             snap={true}
             polar={[0, 0]}
           >
-            <MeshComponent />
+            <MeshComponent fileUrl={fileUrl} yRotation={yRotation} />
           </PresentationControls>
         </Center>
       </Canvas>

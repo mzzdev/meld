@@ -10,7 +10,7 @@ import { BackgroundGradientAnimation } from "@/components/ui/background-gradient
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { SparklesCore } from "@/components/ui/sparkles";
 
-import { Divider, Skeleton } from "@nextui-org/react";
+import { Button, Divider, Skeleton } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
@@ -19,7 +19,6 @@ import { Link } from '@/navigation'; // <-- next-intl navigation
 export default function Home() {
   const { theme } = useTheme();
   const [particleColor, setParticleColor] = useState("#FFFFFF");
-
   const t = useTranslations("Home");
 
   useEffect(() => {
@@ -30,7 +29,7 @@ export default function Home() {
     <main className="flex flex-col min-h-screen relative overflow-x-hidden cursor-default">
 
       {/* controls */}
-      <div className="z-50 fixed mt-2 md:mt-4 md:mr-6 right-0 flex flex-row gap-2">
+      <div className="z-50 fixed mt-2 md:mt-4 md:mr-6 right-0 flex flex-row gap-2 rounded-xl backdrop-blur-sm">
         <LanguageSelector locales={['en', 'es', 'ru']} />
         <ThemeSwitcher />
       </div>
@@ -40,7 +39,7 @@ export default function Home() {
         <BackgroundGradientAnimation />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Link href="/lab">
-            <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-200 dark:ring-neutral-800 pointer-events-auto cursor-pointer transition-all hover:ring-neutral-400 hover:scale-105">
+            <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-200 dark:ring-neutral-800 pointer-events-auto cursor-pointer transition-all dark:hover:ring-purple-700 dark:hover:ring-2 hover:scale-105">
               <HeroHighlight className="flex flex-col items-center gap-10 md:flex-row md:gap-32">
                 <motion.div initial={{ filter: "blur(5px)", opacity: 0 }} whileInView={{ filter: "blur(0)", opacity: 1 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "linear" }}>
                   <p className="max-w-64 text-5xl leading-tight font-semibold tracking-tight text-black dark:text-white">
@@ -64,7 +63,7 @@ export default function Home() {
 
       {/* nextjs & react */}
       <div className="relative flex flex-col md:flex-row w-full h-[50vh]">
-        <div className="h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex flex-col items-center justify-center">
+        <div className="h-full w-full relative flex flex-col items-center justify-center dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2]">
           <div className="absolute inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)]"></div>
           <motion.p className="text-5xl md:text-7xl font-bold tracking-tight relative bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-4"
             initial={{ opacity: 0, y: -25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
@@ -121,6 +120,20 @@ export default function Home() {
         >
           {t('tailwind.description')}
         </motion.p>
+      </div>
+
+      <Divider className="bg-neutral-200 dark:bg-neutral-800" />
+
+      {/* lab */}
+      <div className="flex items-center justify-center w-screen h-[25vh] dark:bg-black bg-white dark:bg-dot-white/[0.2] bg-dot-black/[0.2]">
+        <Button
+          variant="shadow"
+          radius="md"
+          size="lg"
+          color="secondary"
+        >
+          <Link href="/lab">{t('labButton.title')}</Link>
+        </Button>
       </div>
     </main>
   );
