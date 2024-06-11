@@ -30,6 +30,7 @@ body {
 
 /* Theme color transition */
 body,
+main,
 div,
 p {
   transition: background-color .25s ease, color .25s ease;
