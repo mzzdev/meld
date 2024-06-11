@@ -3,8 +3,6 @@
 import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 
-import { ThemeSwitcher } from "@/components/ThemeSwitcher";
-import { LanguageSelector } from "@/components/LanguageSelector";
 import { Miniplayer } from "@/components/Miniplayer";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
@@ -27,12 +25,6 @@ export default function Home() {
 
   return (
     <main className="flex flex-col min-h-screen relative overflow-x-hidden cursor-default">
-
-      {/* controls */}
-      <div className="z-50 fixed mt-2 md:mt-4 md:mr-6 right-0 flex flex-row gap-2 rounded-xl backdrop-blur-sm">
-        <LanguageSelector locales={['en', 'es', 'ru']} />
-        <ThemeSwitcher />
-      </div>
 
       {/* logo screen */}
       <div className="relative w-full h-screen flex flex-col justify-center items-center bg-purple-950 z-10 pointer-events-auto">
