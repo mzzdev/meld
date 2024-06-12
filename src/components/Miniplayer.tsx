@@ -16,7 +16,7 @@ export function Miniplayer() {
         onClick={onOpen}
       >
         <Suspense fallback={<Skeleton className="w-full h-full" />}>
-          <ReactModel fileUrl="/models/react_logo/scene.gltf" yRotation={0.005} zRotation={0.00625} />
+          <ReactModel />
         </Suspense>
       </div>
       <Modal backdrop="blur" isOpen={isOpen} placement={"center"} onOpenChange={onOpenChange} className="bg-inherit">
@@ -27,7 +27,7 @@ export function Miniplayer() {
               onClick={(e) => e.stopPropagation()}
             >
               <Suspense fallback={<Skeleton className="w-full h-full" />}>
-                <ReactModel fileUrl="/models/react_logo/scene.gltf" yRotation={0.005} zRotation={0.00625} />
+                <ReactModel />
               </Suspense>
             </div>
             <div className="z-20 flex items-center justify-center fixed inset-12 left-[calc(50%+1rem)] bordered-lg ring-1 ring-inset ring-neutral-700 bg-white dark:bg-black dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] shadow-xl rounded-lg transition-all">
