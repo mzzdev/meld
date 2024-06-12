@@ -30,5 +30,16 @@
       "description": "Meld utiliza herramientas para mejorar la accesibilidad del sitio web utilizando las Pautas de accesibilidad al contenido web como guía.",
       "moreInfo": "Más información"
     }
+  },
+  "Lab": {
+    "glsl": "",
+    "loader": "Entra al cargador de modelos 3D"
+  },
+  "Loader": {
+    "fileTypesMessage": "Arrastra o selecciona un modelo .glb",
+    "sampleModelsMessage": "O elije un modelo de muestra:",
+    "dragFileTitleMessage": "Arrastra un archivo .glb aquí",
+    "dragFileBodyMessage": "Suelta el archivo para cargar el modelo",
+    "fileTypeErrorMessage": "Tipo de archivo no válido. Por favor, carga un archivo .glb."
   }
 }

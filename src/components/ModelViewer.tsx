@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { BBAnchor, CameraControls, Center, Fisheye, Float, OrbitControls, PresentationControls, Sky, Sparkles, Stars, Text3D, Trail } from "@react-three/drei";
+import { AsciiRenderer, CameraControls, Center, Float, PresentationControls, Resize, Stage, Stars, Text3D } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { Mesh } from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
@@ -83,7 +83,7 @@ export function ReactModel() {
 }
 
 export function ModelViewer({ fileUrl }: { fileUrl: string }) {
-  const { xRotation, yRotation, zRotation, ambientLightIntensity, ambientLightColor, directionalLightPosition, directionalLightIntensity, directionalLightColor, pointLightPosition, pointLightIntensity } = useControls({
+  const { xRotation, yRotation, zRotation, ambientLightIntensity, ambientLightColor, directionalLightPosition, directionalLightIntensity, directionalLightColor, pointLightPosition, pointLightIntensity, gridHelper } = useControls({
     xRotation: { value: 0, min: -0.1, max: 0.1 },
     yRotation: { value: 0, min: -0.1, max: 0.1 },
     zRotation: { value: 0, min: -0.1, max: 0.1 },
@@ -99,20 +99,26 @@ export function ModelViewer({ fileUrl }: { fileUrl: string }) {
     pointLight: folder({
       pointLightPosition: [1, 1, 1],
       pointLightIntensity: { value: 1, min: 0, max: 5 },
-    }, { collapsed: true })
+    }, { collapsed: true }),
+    gridHelper: false
   });
-  
+
   return (
-    <div className='flex justify-center items-center w-full h-full cursor-grab'>
-      <Leva titleBar={{ position: { x: 0, y: 50 } }} theme={{sizes: {rootWidth: 'auto'} }}/>
+    <div className='flex justify-center items-center w-full h-full cursor-grab dark:bg-dot-white/[0.2] bg-dot-black/[0.2]'>
+      <Leva collapsed titleBar={{ position: { x: -20, y: 50 } }} theme={{ sizes: { rootWidth: 'auto' } }} />
       <Canvas className='h-full w-full'>
         <ambientLight color={ambientLightColor} intensity={ambientLightIntensity} />
         <directionalLight position={directionalLightPosition} intensity={directionalLightIntensity} color={directionalLightColor} />
         <pointLight position={pointLightPosition} intensity={pointLightIntensity} />
-        <Center>
-          <MeshComponent fileUrl={fileUrl} xRotation={xRotation} yRotation={yRotation} zRotation={zRotation} />
-        </Center>
-        <CameraControls />
+        <Stage intensity={0.5} shadows="accumulative" environment="warehouse">
+          <Center>
+            <Resize depth>
+              <MeshComponent fileUrl={fileUrl} xRotation={xRotation} yRotation={yRotation} zRotation={zRotation} />
+            </Resize>
+          </Center>
+          <CameraControls />
+        </Stage>
+        <gridHelper visible={gridHelper} args={[100, 100, '#bbb', '#bbb']} position={[0, -1, 0]} />
       </Canvas>
     </div>
   );

@@ -30,5 +30,16 @@
       "description": "Meld utilises tools in order to improve the accessibility of the website utilising the Web Content Accessibility Guidelines as a guide.",
       "moreInfo": "More info"
     }
+  },
+  "Lab": {
+    "glsl": "",
+    "loader": "Enter the 3D model loader"
+  },
+  "Loader": {
+    "fileTypesMessage": "Drop or select a .glb model",
+    "sampleModelsMessage": "Or choose a sample model:",
+    "dragFileTitleMessage": "Drag a .glb file here",
+    "dragFileBodyMessage": "Drop the file to load the model",
+    "fileTypeErrorMessage": "Invalid file type. Please upload a .glb file."
   }
 }
