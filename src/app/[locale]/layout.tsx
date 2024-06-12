@@ -5,9 +5,13 @@ import { Providers } from "./providers";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Footer } from "@/components/Footer";
+import Controls from "@/components/Controls";
 
 export const metadata: Metadata = {
-  title: "Meld",
+  title: {
+    template: "Meld | %s",
+    default: "Meld"
+  },
   description: "Showcase web",
 };
 
@@ -25,6 +29,7 @@ export default async function LocaleLayout({
       <body className={`${inter.className} antialiased`}>
         <Providers>
           <NextIntlClientProvider messages={messages}>
+            <Controls />
             {children}
             <Footer />
           </NextIntlClientProvider>
