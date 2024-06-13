@@ -28,7 +28,7 @@ export default function Home() {
 
       {/* logo screen */}
       <div className="relative w-full h-screen flex flex-col justify-center items-center bg-purple-950 z-10 pointer-events-auto">
-        {/* <BackgroundGradientAnimation /> */}
+        <BackgroundGradientAnimation />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Link href="/lab">
             <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-200 dark:ring-neutral-800 pointer-events-auto cursor-pointer transition-all dark:hover:ring-purple-700 dark:hover:ring-2 hover:scale-105">

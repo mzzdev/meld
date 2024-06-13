@@ -41,13 +41,13 @@ Inicia el servidor
 ✅ = Totalmente implementado
 ⚠️ = En desarrollo
 ❌ = Aún no implementado
+⚛️= Planes futuros
 
-
-- ⚠️ Componentización
+- ✅ Componentización
 
 - ✅ Integración de modo oscuro
 
-- ⚠️ Diseño responsive
+- ✅ Diseño responsive
 
 - ✅ i18n (internacionalización)
 
@@ -55,8 +55,8 @@ Inicia el servidor
 
 - ✅ [Optimización](https://nextjs.org/docs/app/building-your-application/optimizing) y limpieza de módulos de Node
 
-- ❌ THREE.JS 3D Procedural Demo
+- ✅ 3D Model loader
 
-- ❌ GLSL Demo
+- ⚛️ THREE.JS 3D Procedural Demo
 
-- ❌ Otras mejoras (ej. página not-found)
+- ⚛️ GLSL Demo

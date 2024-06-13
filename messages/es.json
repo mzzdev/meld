@@ -29,7 +29,7 @@
     }
   },
   "Lab": {
-    "glsl": "",
+    "glsl": "Descubre los shaders WebGL",
     "loader": "Entra al cargador de modelos 3D",
     "home": "Volver a Inicio"
   },
@@ -47,5 +47,14 @@
     "dragFileTitleMessage": "Arrastra un archivo .glb aquí",
     "dragFileBodyMessage": "Suelta el archivo para cargar el modelo",
     "fileTypeErrorMessage": "Tipo de archivo no válido. Por favor, carga un archivo .glb."
+  },
+  "GLSL": {
+    "goBackButton": "Volver",
+    "webglDescription": "WebGL (Biblioteca Gráfica en la Web) es una API de JavaScript para renderizar gráficos interactivos 2D y 3D dentro de cualquier navegador web compatible sin necesidad de plugins. Permite renderizar gráficos complejos de alto rendimiento directamente en la GPU.",
+    "threejsDescription": "Three.js es una biblioteca/API ligera de JavaScript utilizada para crear y mostrar gráficos computacionales 3D animados en un navegador web. Simplifica el proceso de crear visualizaciones 3D, juegos, contenido interactivo y más.",
+    "r3fDescription": "React Three Fiber (r3f) es un renderizador de React para Three.js, que permite a los desarrolladores definir y gestionar escenas 3D de manera declarativa mediante componentes React. Se integra perfectamente con la arquitectura basada en componentes de React.",
+    "dreiDescription": "Drei es una colección de utilidades y abstracciones útiles para React Three Fiber (r3f), que mejora la experiencia de desarrollo para crear aplicaciones 3D en React. Proporciona componentes preconstruidos y utilidades para tareas comunes.",
+    "moreInfo": "Más información",
+    "glslMessage": "Todos los gráficos fueron creados utilizando algún tipo de WebGL."
   }
 }
