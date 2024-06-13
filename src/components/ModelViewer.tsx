@@ -83,7 +83,7 @@ export function ReactModel() {
 }
 
 export function ModelViewer({ fileUrl }: { fileUrl: string }) {
-  const { xRotation, yRotation, zRotation, ambientLightIntensity, ambientLightColor, directionalLightPosition, directionalLightIntensity, directionalLightColor, pointLightPosition, pointLightIntensity, gridHelper } = useControls({
+  const { xRotation, yRotation, zRotation, ambientLightIntensity, ambientLightColor, directionalLightPosition, directionalLightIntensity, directionalLightColor, pointLightPosition, pointLightIntensity, pointLightColor, gridHelper, showAscii } = useControls({
     xRotation: { value: 0, min: -0.1, max: 0.1 },
     yRotation: { value: 0, min: -0.1, max: 0.1 },
     zRotation: { value: 0, min: -0.1, max: 0.1 },
@@ -99,8 +99,10 @@ export function ModelViewer({ fileUrl }: { fileUrl: string }) {
     pointLight: folder({
       pointLightPosition: [1, 1, 1],
       pointLightIntensity: { value: 1, min: 0, max: 5 },
+      pointLightColor: { value: '#ffffff' }
     }, { collapsed: true }),
-    gridHelper: false
+    gridHelper: false,
+    showAscii: false
   });
 
   return (
@@ -109,7 +111,7 @@ export function ModelViewer({ fileUrl }: { fileUrl: string }) {
       <Canvas className='h-full w-full'>
         <ambientLight color={ambientLightColor} intensity={ambientLightIntensity} />
         <directionalLight position={directionalLightPosition} intensity={directionalLightIntensity} color={directionalLightColor} />
-        <pointLight position={pointLightPosition} intensity={pointLightIntensity} />
+        <pointLight position={pointLightPosition} intensity={pointLightIntensity} color={pointLightColor} />
         <Stage intensity={0.5} shadows="accumulative" environment="warehouse">
           <Center>
             <Resize depth>
@@ -118,6 +120,7 @@ export function ModelViewer({ fileUrl }: { fileUrl: string }) {
           </Center>
           <CameraControls />
         </Stage>
+        {showAscii && <AsciiRenderer />}
         <gridHelper visible={gridHelper} args={[100, 100, '#bbb', '#bbb']} position={[0, -1, 0]} />
       </Canvas>
     </div>

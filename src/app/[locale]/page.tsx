@@ -39,8 +39,9 @@ export default function Home() {
                   </p>
                 </motion.div>
                 <Image
+                priority
                   src={'/icons/logo/logo.png'}
-                  alt={'meld-logo'}
+                  alt={'Meld logo'}
                   width={375}
                   height={375}
                   className="pointer-events-none select-none"
@@ -63,7 +64,7 @@ export default function Home() {
           </motion.p>
           <motion.p className="relative max-w-96 text-lg font-semibold leading-tight tracking-tight text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
             initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
-            {t.rich('nextjs.description', {
+            {t.rich('nextjsText', {
               highlight: (chunks) => <span className="text-secondary-400">{chunks}</span>
             })}
           </motion.p>
@@ -123,8 +124,12 @@ export default function Home() {
           radius="md"
           size="lg"
           color="secondary"
+          className="p-0"
+          title={t('labButton.title')}
+          aria-label={t('labButton.title')}
+          role="button"
         >
-          <Link href="/lab">{t('labButton.title')}</Link>
+          <Link className="flex w-full h-full p-6 items-center justify-center" href="/lab">{t('labButton.title')}</Link>
         </Button>
       </div>
     </main>

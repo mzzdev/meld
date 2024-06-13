@@ -2,6 +2,7 @@
   "Home": {
     "navBar": {
       "langs": {
+        "description": "App language",
         "en": "Inglés",
         "es": "Español",
         "ru": "Ruso"
@@ -10,11 +11,7 @@
     "logoCard": {
       "title": "es un proyecto web de exposición."
     },
-    "modelDescription": "React es una poderosa biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario, particularmente aplicaciones de una sola página. Permite a los desarrolladores crear componentes de interfaz de usuario reutilizables, que gestionan su propio estado y pueden componerse para construir interfaces de usuario complejas. La naturaleza declarativa de React hace que sea fácil de predecir y depurar, mejorando la productividad del desarrollador y el mantenimiento del código. Al aprovechar un DOM virtual, React actualiza y renderiza componentes de manera eficiente cuando los datos cambian, asegurando un rendimiento óptimo. Además, el vasto ecosistema de React, incluyendo hooks, la API de contexto y la integración con otras bibliotecas y frameworks, proporciona herramientas extensas y flexibilidad para construir aplicaciones web dinámicas y responsivas. Su uso en conjunto con Next.js permite la renderización del lado del servidor y la generación de sitios estáticos, optimizando aún más el rendimiento y el SEO de los proyectos web modernos.",
-    "nextjs": {
-      "description": "Next.js es la columna vertebral de este proyecto, proporcionando <highlight>funcionalidad robusta</highlight> y una integración fluida, lo que agiliza el desarrollo y mejora la <highlight>experiencia del usuario</highlight>.",
-      "react": "React es una poderosa biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario, particularmente aplicaciones de una sola página. Permite a los desarrolladores crear componentes de interfaz de usuario reutilizables, que gestionan su propio estado y pueden componerse para construir interfaces de usuario complejas. La naturaleza declarativa de React hace que sea fácil de predecir y depurar, mejorando la productividad del desarrollador y el mantenimiento del código. Al aprovechar un DOM virtual, React actualiza y renderiza componentes de manera eficiente cuando los datos cambian, asegurando un rendimiento óptimo. Además, el vasto ecosistema de React, incluyendo hooks, la API de contexto y la integración con otras bibliotecas y frameworks, proporciona herramientas extensas y flexibilidad para construir aplicaciones web dinámicas y responsivas. Su uso en conjunto con Next.js permite la renderización del lado del servidor y la generación de sitios estáticos, optimizando aún más el rendimiento y el SEO de los proyectos web modernos."
-    },
+    "nextjsText": "Next.js es la columna vertebral de este proyecto, proporcionando <highlight>funcionalidad robusta</highlight> y una integración fluida, lo que agiliza el desarrollo y mejora la <highlight>experiencia del usuario</highlight>.",
     "tailwind": {
       "description": "Tailwind CSS es un excepcional marco de CSS basado en utilidades que mejora el diseño y el proceso de desarrollo al proporcionar un conjunto completo de clases predefinidas. Permite a los desarrolladores construir interfaces responsivas y modernas directamente dentro del marcado, asegurando un estilo consistente y una rápida creación de prototipos. Al aprovechar Tailwind CSS, este proyecto se beneficia de un flujo de trabajo simplificado, minimizando la necesidad de CSS personalizado y permitiendo ajustes rápidos al diseño. La flexibilidad y modularidad de Tailwind permiten una integración perfecta con los componentes existentes, manteniendo la coherencia estética de toda la aplicación."
     },
@@ -32,14 +29,32 @@
     }
   },
   "Lab": {
-    "glsl": "",
-    "loader": "Entra al cargador de modelos 3D"
+    "glsl": "Descubre los shaders WebGL",
+    "loader": "Entra al cargador de modelos 3D",
+    "home": "Volver a Inicio"
+  },
+  "Miniplayer": {
+    "reactInfo1": "Impulsado por React",
+    "reactInfo2": "Haz clic para aprender más",
+    "reactText": "React es una poderosa biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario, particularmente aplicaciones de una sola página. Permite a los desarrolladores crear componentes de interfaz de usuario reutilizables, que gestionan su propio estado y pueden componerse para construir interfaces de usuario complejas. La naturaleza declarativa de React hace que sea fácil de predecir y depurar, mejorando la productividad del desarrollador y el mantenimiento del código. Al aprovechar un DOM virtual, React actualiza y renderiza componentes de manera eficiente cuando los datos cambian, asegurando un rendimiento óptimo. Además, el vasto ecosistema de React, incluyendo hooks, la API de contexto y la integración con otras bibliotecas y frameworks, proporciona herramientas extensas y flexibilidad para construir aplicaciones web dinámicas y responsivas. Su uso en conjunto con Next.js permite la renderización del lado del servidor y la generación de sitios estáticos, optimizando aún más el rendimiento y el SEO de los proyectos web modernos.",
+    "closeTooltip": "para cerrar"
   },
   "Loader": {
+    "goBackButton": "Volver",
+    "uploadButton": "Subir modelo",
     "fileTypesMessage": "Arrastra o selecciona un modelo .glb",
     "sampleModelsMessage": "O elije un modelo de muestra:",
     "dragFileTitleMessage": "Arrastra un archivo .glb aquí",
     "dragFileBodyMessage": "Suelta el archivo para cargar el modelo",
     "fileTypeErrorMessage": "Tipo de archivo no válido. Por favor, carga un archivo .glb."
+  },
+  "GLSL": {
+    "goBackButton": "Volver",
+    "webglDescription": "WebGL (Biblioteca Gráfica en la Web) es una API de JavaScript para renderizar gráficos interactivos 2D y 3D dentro de cualquier navegador web compatible sin necesidad de plugins. Permite renderizar gráficos complejos de alto rendimiento directamente en la GPU.",
+    "threejsDescription": "Three.js es una biblioteca/API ligera de JavaScript utilizada para crear y mostrar gráficos computacionales 3D animados en un navegador web. Simplifica el proceso de crear visualizaciones 3D, juegos, contenido interactivo y más.",
+    "r3fDescription": "React Three Fiber (r3f) es un renderizador de React para Three.js, que permite a los desarrolladores definir y gestionar escenas 3D de manera declarativa mediante componentes React. Se integra perfectamente con la arquitectura basada en componentes de React.",
+    "dreiDescription": "Drei es una colección de utilidades y abstracciones útiles para React Three Fiber (r3f), que mejora la experiencia de desarrollo para crear aplicaciones 3D en React. Proporciona componentes preconstruidos y utilidades para tareas comunes.",
+    "moreInfo": "Más información",
+    "glslMessage": "Todos los gráficos fueron creados utilizando algún tipo de WebGL."
   }
 }

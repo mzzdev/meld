@@ -2,6 +2,7 @@
   "Home": {
     "navBar": {
       "langs": {
+        "description": "App language",
         "en": "English",
         "es": "Spanish",
         "ru": "Russian"
@@ -10,11 +11,7 @@
     "logoCard": {
       "title": "is a showcase web project."
     },
-    "modelDescription": "React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects.",
-    "nextjs": {
-      "description": "Next.js is the backbone of this project, providing <highlight>robust functionality</highlight> and smooth integration, which streamlines development and enhances the <highlight>user experience</highlight>.",
-      "react": "React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects."
-    },
+    "nextjsText": "Next.js is the backbone of this project, providing <highlight>robust functionality</highlight> and smooth integration, which streamlines development and enhances the <highlight>user experience</highlight>.",
     "tailwind": {
       "description": "Tailwind CSS is an exceptional utility-first CSS framework that enhances the design and development process by providing a comprehensive set of pre-defined classes. It empowers developers to build responsive and modern interfaces directly within the markup, ensuring consistent styling and rapid prototyping. By leveraging Tailwind CSS, this project benefits from a streamlined workflow, minimizing the need for custom CSS and enabling quick adjustments to the design. The flexibility and modularity of Tailwind allow for seamless integration with existing components, maintaining the aesthetic coherence of the entire application."
     },
@@ -32,14 +29,32 @@
     }
   },
   "Lab": {
-    "glsl": "",
-    "loader": "Enter the 3D model loader"
+    "glsl": "Discover WebGL shaders",
+    "loader": "Enter the 3D model loader",
+    "home": "Back to Home"
+  },
+  "Miniplayer": {
+    "reactInfo1": "Powered by React",
+    "reactInfo2": "Click to learn about it",
+    "reactText": "React is a powerful JavaScript library developed by Facebook for building user interfaces, particularly single-page applications. It allows developers to create reusable UI components, which manage their own state and can be composed to build complex user interfaces. React's declarative nature makes it easy to predict and debug, enhancing developer productivity and code maintainability. By leveraging a virtual DOM, React efficiently updates and renders components when data changes, ensuring optimal performance. Additionally, React's vast ecosystem, including hooks, context API, and integration with other libraries and frameworks, provides extensive tools and flexibility for building dynamic and responsive web applications. Its use in conjunction with Next.js enables server-side rendering and static site generation, further optimizing performance and SEO for modern web projects.",
+    "closeTooltip": "to close"
   },
   "Loader": {
+    "goBackButton": "Go back",
+    "uploadButton": "Upload model",
     "fileTypesMessage": "Drop or select a .glb model",
     "sampleModelsMessage": "Or choose a sample model:",
     "dragFileTitleMessage": "Drag a .glb file here",
     "dragFileBodyMessage": "Drop the file to load the model",
     "fileTypeErrorMessage": "Invalid file type. Please upload a .glb file."
+  },
+  "GLSL": {
+    "goBackButton": "Go back",
+    "webglDescription": "WebGL (Web Graphics Library) is a JavaScript API for rendering interactive 2D and 3D graphics within any compatible web browser without the use of plug-ins. It allows for high-performance rendering of complex graphics directly on the GPU.",
+    "threejsDescription": "Three.js is a lightweight JavaScript library/API used to create and display animated 3D computer graphics on a web browser. It simplifies the process of creating 3D visualizations, games, interactive content, and more.",
+    "r3fDescription": "React Three Fiber (r3f) is a React renderer for Three.js, allowing developers to declaratively define and manage 3D scenes using React components. It integrates seamlessly with React's component-based architecture.",
+    "dreiDescription": "Drei is a collection of useful helpers and abstractions for React Three Fiber (r3f), enhancing the development experience for creating 3D applications in React. It provides pre-built components and utilities for common tasks.",
+    "moreInfo": "More info",
+    "glslMessage": "All of the visuals were made using some form of webGL."
   }
 }

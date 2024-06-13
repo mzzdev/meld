@@ -1,10 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Lab"
+  title: {
+    template: "Lab - %s",
+    default: "Lab"
+  },
 }
 
-export default async function LocaleLayout({
+export default async function LabLayout({
   children,
 }: {
   children: React.ReactNode;
