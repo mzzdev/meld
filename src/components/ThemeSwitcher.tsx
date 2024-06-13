@@ -35,6 +35,9 @@ export function ThemeSwitcher() {
       color="secondary"
       onChange={toggleTheme}
       isSelected={!isChecked}
+      aria-label="Toggle theme"
+      role="switch"
+      aria-checked={!isChecked}
     />
   )
 };

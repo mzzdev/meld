@@ -18,9 +18,10 @@ export function Footer() {
           <Link href="https://github.com/mzzdev/meld" target="_blank" className="hover:opacity-50 transition-all">
             <Image
               src={'/icons/github.svg'}
-              alt={'github-logo'}
-              width={25}
-              height={25}
+              alt={'GitHub logo'}
+              width={0}
+              height={0}
+              style={{ width: '1.5rem', height: 'auto' }}
               className="pointer-events-none select-none"
             />
           </Link>
@@ -28,7 +29,7 @@ export function Footer() {
         <div className="leading-8 font-semibold text-medium tracking-tight text-black dark:text-white cursor-default select-none">
           {t.rich('madeWithLove', {
             link: (chunks) => (
-              <Link href="https://github.com/mzzdev/" target="_blank" className="hover:opacity-50 transition-all text-secondary-500">
+              <Link href="https://github.com/mzzdev/" target="_blank" className="hover:opacity-50 transition-all text-secondary-600 dark:text-secondary-400">
                 {chunks}
               </Link>
             )
@@ -38,14 +39,15 @@ export function Footer() {
             <p>{t('deployedOn')}</p>
             <Image
               src={'/icons/vercel.svg'}
-              alt={'vercel-logo'}
-              width={80}
-              height={25}
-              className="pointer-events-none inline-block text-black dark:text-white"
+              alt={'Vercel logo'}
+              width={0}
+              height={0}
+              style={{ width: 'auto', height: 'auto' }}
+              className="pointer-events-none inline-block"
             />
           </Link>
 
-          <button onClick={onOpen} className="hover:opacity-50 transition-all">{t('accesibility.title')}</button>
+          <button onClick={onOpen} title={t('accesibility.title')} aria-label={t('accesibility.title')} role="button" className="hover:opacity-50 transition-all">{t('accesibility.title')}</button>
           <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="leading-8 font-semibold text-medium tracking-tight text-black dark:text-white">
             <ModalContent>
               <ModalHeader className="flex flex-col gap-1">{t('accesibility.title')}</ModalHeader>
@@ -53,14 +55,14 @@ export function Footer() {
                 <p>
                   {t('accesibility.description')}
                 </p>
-                <Link href="https://web.dev/explore/accessible/" target="_blank" className="text-secondary-500 hover:opacity-50 transition-opacity">
+                <Link href="https://web.dev/explore/accessible/" target="_blank" className="text-secondary-600 dark:text-secondary-400 hover:opacity-50 transition-opacity">
                   {t('accesibility.moreInfo')}
                 </Link>
               </ModalBody>
             </ModalContent>
           </Modal>
 
-          <p className="justify-center mt-8 text-default-400 ">
+          <p className="justify-center mt-8 text-neutral-500 dark:text-neutral-400">
             <Link href="https://meld-mu.vercel.app/" className="hover:opacity-50 transition-opacity">
               Meld
             </Link> | {new Date().getFullYear()}

@@ -73,6 +73,9 @@ export default function Loader() {
                   onClick={handleClick}
                   isIconOnly
                   variant="ghost"
+                  title={t('uploadButton')}
+                  aria-label={t('uploadButton')}
+                  role="button"
                 >
                   <ArrowUpTrayIcon className="h-full p-4 text-black dark:text-white" />
                 </Button>
@@ -114,7 +117,7 @@ export default function Loader() {
       <Divider className="bg-neutral-200 dark:bg-neutral-800" />
 
       <div className="z-50 fixed top-0 left-0 flex items-center p-4 gap-4">
-        <Link href="/lab" className="w-8 text-neutral-500 hover:opacity-50 transition-all">
+        <Link href="/lab" title={t('goBackButton')} aria-label={t('goBackButton')} role="button" className="w-8 text-neutral-500 hover:opacity-50 transition-all">
           <ArrowUturnLeftIcon />
         </Link>
         {fileUrl && (

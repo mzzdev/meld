@@ -28,7 +28,7 @@ export default function Home() {
 
       {/* logo screen */}
       <div className="relative w-full h-screen flex flex-col justify-center items-center bg-purple-950 z-10 pointer-events-auto">
-        <BackgroundGradientAnimation />
+        {/* <BackgroundGradientAnimation /> */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <Link href="/lab">
             <div className="bg-white dark:bg-black m-10 p-2 md:p-10 rounded-xl ring-1 ring-inset ring-neutral-200 dark:ring-neutral-800 pointer-events-auto cursor-pointer transition-all dark:hover:ring-purple-700 dark:hover:ring-2 hover:scale-105">
@@ -39,8 +39,9 @@ export default function Home() {
                   </p>
                 </motion.div>
                 <Image
+                priority
                   src={'/icons/logo/logo.png'}
-                  alt={'meld-logo'}
+                  alt={'Meld logo'}
                   width={375}
                   height={375}
                   className="pointer-events-none select-none"
@@ -63,7 +64,7 @@ export default function Home() {
           </motion.p>
           <motion.p className="relative max-w-96 text-lg font-semibold leading-tight tracking-tight text-neutral-800 dark:text-neutral-200 px-4 text-center mt-4"
             initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .5, delay: 0, ease: "easeInOut" }}>
-            {t.rich('nextjs.description', {
+            {t.rich('nextjsText', {
               highlight: (chunks) => <span className="text-secondary-400">{chunks}</span>
             })}
           </motion.p>
@@ -123,8 +124,12 @@ export default function Home() {
           radius="md"
           size="lg"
           color="secondary"
+          className="p-0"
+          title={t('labButton.title')}
+          aria-label={t('labButton.title')}
+          role="button"
         >
-          <Link href="/lab">{t('labButton.title')}</Link>
+          <Link className="flex w-full h-full p-6 items-center justify-center" href="/lab">{t('labButton.title')}</Link>
         </Button>
       </div>
     </main>

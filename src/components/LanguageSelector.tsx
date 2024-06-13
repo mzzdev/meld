@@ -24,16 +24,17 @@ export function LanguageSelector({ locales }: { locales: string[] }) {
   return (
     <Dropdown className="text-black dark:text-white dark:bg-black">
       <DropdownTrigger className="w-auto h-auto">
-        <Button isIconOnly>
-          <GlobeAltIcon className="w-6 h-6" />
+        <Button isIconOnly aria-label={t("navBar.langs.description")} title={t("navBar.langs.description")} role="button">
+          <GlobeAltIcon className="w-6 h-6" aria-hidden="true" />
         </Button>
       </DropdownTrigger>
-      <DropdownMenu variant="faded" aria-label="Language selector">
+      <DropdownMenu variant="faded" aria-label={t("navBar.langs.description")} role="menu">
         {locales.map(locale => (
           <DropdownItem
             key={locale}
             onPress={() => handleLocaleChange(locale)}
             startContent={flagMap[locale]}
+            role="menuitem"
           >
             {t(`navBar.langs.${locale}`)}
           </DropdownItem>

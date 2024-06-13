@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Lab"
 }
 
-export default async function LocaleLayout({
+export default async function LabLayout({
   children,
 }: {
   children: React.ReactNode;

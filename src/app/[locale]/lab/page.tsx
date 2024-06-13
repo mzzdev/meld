@@ -1,7 +1,8 @@
-import { Card, CardHeader, Link } from '@nextui-org/react';
+import { Card, CardHeader, Link, Skeleton } from '@nextui-org/react';
 import { HomeIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Suspense } from 'react';
 
 export default function Lab() {
   const t = useTranslations("Lab");
@@ -18,13 +19,16 @@ export default function Lab() {
                 <p className="text-tiny text-white uppercase font-bold">Placeholder</p>
                 <h4 className="text-white font-semibold text-lg tracking-tight">Placeholder</h4>
               </CardHeader>
-              <Image
-                alt="Card background"
-                className="z-0 w-full h-full object-cover"
-                src="/images/glsl.gif"
-                width={2000}
-                height={2000}
-              />
+              <Suspense fallback={<Skeleton className="h-full w-full" />}>
+                <Image
+                  unoptimized
+                  alt="GLSL card background"
+                  className="z-0 w-full h-full object-cover"
+                  src="/images/glsl.gif"
+                  width={2000}
+                  height={2000}
+                />
+              </Suspense>
             </Card>
           </Link>
           <Link href="/lab/loader" className='col-span-1 h-[40vh] hover:scale-105 hover:shadow-xl transition-all'>
@@ -33,17 +37,20 @@ export default function Lab() {
                 <p className="text-tiny text-white uppercase font-bold">Loader</p>
                 <h4 className="text-white font-semibold text-lg tracking-tight">{t('loader')}</h4>
               </CardHeader>
-              <Image
-                alt="Card background"
-                className="z-0 w-full h-full object-cover"
-                src="/images/maxwell.gif"
-                width={2000}
-                height={2000}
-              />
+              <Suspense fallback={<Skeleton className="h-full w-full" />}>
+                <Image
+                  unoptimized
+                  alt="Model loader card background"
+                  className="z-0 w-full h-full object-cover"
+                  src="/images/maxwell.gif"
+                  width={2000}
+                  height={2000}
+                />
+              </Suspense>
             </Card>
           </Link>
         </div>
-        <Link href="/" className=" my-5 w-10 text-neutral-500 hover:opacity-50"><HomeIcon /></Link>
+        <Link href="/" title={t('home')} aria-label={t('home')} role="button" className="my-5 w-10 text-black dark:text-white hover:opacity-50"><HomeIcon /></Link>
       </div>
     </main>
   );
