@@ -13,7 +13,7 @@ export function Miniplayer() {
   return (
     <>
       <div
-        className="z-20 bordered-lg ring-1 ring-neutral-700 hover:ring-neutral-400 bg-white dark:bg-black shadow-xl rounded-lg cursor-pointer transition-all absolute h-1/4 w-1/4 md:h-1/2 md:w-1/5 top-4 right-4 md:top-auto md:bottom-8 md:right-8"
+        className="z-20 bordered-lg ring-2 ring-neutral-800 hover:ring-neutral-500 bg-white dark:bg-black shadow-xl rounded-2xl cursor-pointer transition-all h-1/3 w-1/1 md:h-1/3 md:w-1/4"
         onClick={onOpen}
       >
         <Card className="h-full w-full relative">
