@@ -64,8 +64,8 @@ export function Footer() {
 
           <p className="justify-center mt-8 text-neutral-500 dark:text-neutral-400">
             <Link href="https://meld-mu.vercel.app/" className="hover:opacity-50 transition-opacity">
-              Meld
-            </Link> | {new Date().getFullYear()}
+              Meld / 2024
+            </Link>
           </p>
         </div>
       </div>
