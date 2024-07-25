@@ -56,5 +56,9 @@
     "dreiDescription": "Drei es una colección de utilidades y abstracciones útiles para React Three Fiber (r3f), que mejora la experiencia de desarrollo para crear aplicaciones 3D en React. Proporciona componentes preconstruidos y utilidades para tareas comunes.",
     "moreInfo": "Más información",
     "glslMessage": "Todos los gráficos fueron creados utilizando algún tipo de WebGL."
+  },
+  "NotFoundPage": {
+    "message": "La página que buscas no existe.",
+    "homeButton": "Volver a Inicio"
   }
 }
